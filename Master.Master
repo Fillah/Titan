@@ -1,0 +1,203 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="WebudviklingProjekt1.Master" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Backend projekt | Azure website</title>
+
+    <meta name="description" content="Dette projekt omhandler første eksamensopgave i webudvikling" />
+    <meta name="keywords" content="Webudvikling, backend, back-end, projekt" />
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Jonas Christensen" />
+
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" media="all" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,300' rel='stylesheet' type='text/css' />
+    <link href="Style/StyleSheet.css" rel="stylesheet" media="all" type="text/css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="favicon.png" rel="icon" type="image/png" />
+    <link rel='canonical' href='https://Project-titan.com/' />
+    <link rel='shortlink' href='https://Project-titan.com/' />
+
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="background">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolderNav" runat="server">
+            <header id="header" class="header-section section section-dark navbar navbar-fixed-top">
+				<div class="container-fluid">
+					<div class="navbar-header navbar-left">
+
+						<!-- RESPONSIVE MENU BUTTON -->
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+
+						<!-- HEADER LOGO -->
+						<a class="navbar-logo navbar-brand anchor-link" href="Default.aspx">
+							<img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e1/Crocs_logo.svg/1024px-Crocs_logo.svg.png" alt="Logo" />
+						</a>
+
+					</div>
+
+					<nav id="navigation" class="navigation navbar-collapse collapse navbar-right">
+						
+						<!-- NAVIGATION LINKS -->
+						<ul id="header-nav" class="nav navbar-nav">
+							<li><a id="aboutlink" href="#about">About</a></li>
+							<li><a id="purposelink" href="#purpose">The purpose</a></li>
+							<li><a id="signuplink" href="#signup">Sign up</a></li>
+							<li><a id="contactlink" href="#contact">Contact</a></li>
+                            <li><a href="Admin.aspx"><button type="button" class="btn btn-success button-menu">Log in</button></a></li>
+						</ul>
+					</nav>
+				</div>
+			</header>
+        </asp:ContentPlaceHolder>
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server">
+
+        </asp:ContentPlaceHolder>
+
+        <!-- ContentPlaceHolder Footer start -->
+        <asp:ContentPlaceHolder ID="ContentPlaceHolderFooter" runat="server">
+            <footer id="footer">
+                <div class="container">
+                    <p class="footer-text">&copy; 2015 &raquo; Jonas Christensen &laquo; Alle rettigheder forbeholdt &#8226; <a class="footer-link" href="mailto:jonas_chr@hotmail.com" target="_top">jonas_chr@hotmail.com </a>&#8226; Ditlev Bergs vej 31.1-25 &#8226; DK-9000 Aalborg</p>
+                </div>
+            </footer>
+        </asp:ContentPlaceHolder>
+        <!-- ContentPlaceHolder Footer end -->
+
+        <!-- scroll to top -->
+        <a href="#0" class="cd-top cd-is-visible cd-fade-out"><i class="fa fa-angle-up fa-2x white"></i></a>
+    </div>
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+        /* Scroll to div */
+        
+        $("#aboutlink").click(function () {
+            $('html, body').animate({
+                scrollTop: $("#about").offset().top
+            }, 1000);
+        });
+
+        $("#purposelink").click(function () {
+            $('html, body').animate({
+                scrollTop: $("#purpose").offset().top
+            }, 1000);
+        });
+
+        $("#signuplink").click(function () {
+            $('html, body').animate({
+                scrollTop: $("#signup").offset().top
+            }, 1000);
+        });
+
+        $("#contactlink").click(function () {
+            $('html, body').animate({
+                scrollTop: $("#contact").offset().top
+            }, 1000);
+        });
+
+        /* Forside */
+
+        $('a[href*=#]:not([href=#])').click(function () {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+                || location.hostname == this.hostname) {
+
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top - 50
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+
+        /* Back to top */
+
+        jQuery(document).ready(function ($) {
+            // browser window scroll (in pixels) after which the "back to top" link is shown
+            var offset = 300,
+                //browser window scroll (in pixels) after which the "back to top" link opacity is reduced
+                offset_opacity = 1200,
+                //duration of the top scrolling animation (in ms)
+                scroll_top_duration = 700,
+                //grab the "back to top" link
+                $back_to_top = $('.cd-top');
+
+            //hide or show the "back to top" link
+            $(window).scroll(function () {
+                ($(this).scrollTop() > offset) ? $back_to_top.addClass('cd-is-visible') : $back_to_top.removeClass('cd-is-visible cd-fade-out');
+                if ($(this).scrollTop() > offset_opacity) {
+                    $back_to_top.addClass('cd-fade-out');
+                }
+            });
+
+            //smooth scroll to top
+            $back_to_top.on('click', function (event) {
+                event.preventDefault();
+                $('body,html').animate({
+                    scrollTop: 0,
+                }, scroll_top_duration
+                );
+            });
+
+        });
+        // Navbar change color on scroll
+        function init() {
+            window.addEventListener('scroll', function (e) {
+                var distanceY = window.pageYOffset || document.documentElement.scrollTop,
+                    shrinkOn = 390,
+                    header = $("#header");
+                if (distanceY > shrinkOn)
+                {
+                    $('.header-section').css('background-color', 'rgba(44, 62, 80,1.0)');
+                }
+                else {
+                    if ($('.header-section').css('background-color', 'rgba(44, 62, 80,1.0)'))
+                    {
+                        $('.header-section').css('background-color', 'rgba(0, 0, 0, 0.1)');
+                    }
+                }
+            });
+        }
+        window.onload = init();
+       
+        //Show items after scroll. from 0 - 1 opacity
+        $(document).scroll(function () {
+            var y = $(this).scrollTop();
+            var dataShown = $('.showmenu').data('isshown');
+            console.log(dataShown);
+            if (y > 300) {
+                if (!dataShown) {
+                    $('.showmenu').css('opacity', '0.1').stop().animate({ "opacity": "1" }, 600);
+                    $('.showmenu').data('isshown', true);
+                }
+            } else if (y < 300) {
+
+            }
+
+        });
+    </script>
+</body>
+</html>
